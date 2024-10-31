@@ -1,7 +1,7 @@
 CREATE TABLE Category (
     category_id INT PRIMARY KEY AUTO_INCREMENT,
-    catergory_name VARCHAR(100) NOT NULL,
-    catergory_description TEXT,
+    category_name VARCHAR(100) NOT NULL,
+    category_description TEXT
 );
 
 CREATE TABLE Item (
@@ -18,7 +18,7 @@ CREATE TABLE Drink (
     drink_id INT PRIMARY KEY AUTO_INCREMENT,
     drink_name VARCHAR(100) NOT NULL,
     drink_description TEXT,
-    drink_price DECIMAL(10, 2),
+    drink_price DECIMAL(10, 2)
 );
 
 CREATE TABLE ItemDrink (
