@@ -13,8 +13,8 @@ export const getItems = async (req, res) => {
     }
 }
 
-export const getItemsWithCategories = async (req, res) => { 
-    const itemsWithCategories = await itemsDataBase.getItemsWithCategories(); 
+export const getItemsBasedOnCategory = async (req, res) => { 
+    const itemsWithCategories = await itemsDataBase.getItemsBasedOnCategory(req.params.category_name); 
     if (itemsWithCategories.length !== 0) { 
         res.status(200).json({ 
             message: "Successfully retreived data with categories ", 
@@ -26,6 +26,7 @@ export const getItemsWithCategories = async (req, res) => {
         })
     }
 }
+
 export const addItem = (req, res) => { 
 
 }
