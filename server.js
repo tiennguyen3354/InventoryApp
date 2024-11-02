@@ -7,7 +7,7 @@ const app = express();
 
 
 // use middle ware 
-app.use(express.json()); 
+app.use(express.json());
 
 // Mount the router
 app.use("/category", categoryRouter); 

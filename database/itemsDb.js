@@ -25,4 +25,16 @@ const addItem = async (category_id,item_name, item_description, item_price, item
         return await getItemByID(result.insertId); 
     }
 }
-export default {getItems , getItemsBasedOnCategory, addItem};
+const updateItem = async (item_name, item_description , item_price, item_stock_quantity, category_id , id) => { 
+    
+    const [result] = await connection.query("UPDATE Item SET item_name = ?, item_description = ?, item_price = ?, item_stock_quantity = ?, category_id = ? WHERE item_id = ?", 
+        [item_name, item_description , item_price, item_stock_quantity, category_id , id]
+    )
+
+    if (result.affectedRows === 0) { 
+        return null; 
+    } else { 
+        return await getItemByID(id); 
+    }
+}
+export default {getItems , getItemsBasedOnCategory, addItem, updateItem};
