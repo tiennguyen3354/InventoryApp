@@ -8,7 +8,7 @@ const app = express();
 
 // use middle ware 
 app.use(express.json());
-
+app.set('trust proxy', true);
 // Mount the router
 app.use("/category", categoryRouter); 
 app.use("/item", itemRouter)

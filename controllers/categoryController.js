@@ -1,8 +1,10 @@
 import categoriesDb from './../database/categoriesDb.js'
-
+import chalk from 'chalk'
 export const getCategories = async (req, res) => { 
     const result = await categoriesDb.getCategories(); 
-    if (result !== null ) { 
+    
+    if (result !== null) { 
+        console.log(chalk.bgMagenta( "Users accessing /category" ) )
         res.status(200).json({
             message: "Success", 
             result
