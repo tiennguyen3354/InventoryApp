@@ -8,12 +8,12 @@ const categoryRouter = express.Router();
 categoryRouter.get('/', getCategories); 
 categoryRouter.post('/', addCategory); 
 categoryRouter.put('/:id', updateCategory); 
-categoryRouter.delete('/:id', deleteCategory); 
-const itemRouter = express.Router(); 
+categoryRouter.delete('/:id', deleteCategory);
+
 // item router 
+const itemRouter = express.Router(); 
 itemRouter.get('/', getItems); 
 itemRouter.get('/categories/:category_name', getItemsBasedOnCategory)
-
 itemRouter.post('/', addItem); 
 itemRouter.put('/:id', updateItem); 
 itemRouter.delete('/:id', deleteItem); 

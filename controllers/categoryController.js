@@ -1,5 +1,4 @@
-
-
+import categoriesDb from './../database/categoriesDb.js'
 export const getCategories = (req, res) => { 
 
 }
