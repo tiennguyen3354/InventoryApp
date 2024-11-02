@@ -1,4 +1,3 @@
-import express from 'express'; 
 import itemsDataBase from "./../database/itemsDb.js"
 
 export const getItems = async (req, res) => { 
