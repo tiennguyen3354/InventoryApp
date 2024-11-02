@@ -75,7 +75,7 @@ export const updateItem = async (req, res) => {
             item.category_id === null
         ) { 
             res.status(400).json({ 
-                
+
                 message: "the fields required are missing and item not updated "
             })
         } else {
@@ -87,6 +87,24 @@ export const updateItem = async (req, res) => {
     }
 }
 
-export const deleteItem = (req, res ) => { 
-    
+export const deleteItem = async (req, res ) => { 
+    const id = parseInt(req.params.id); 
+    if (!Number.isInteger(id)) {
+        res.status(400).json({
+            message: "Bad request, the id needs to be a number"
+        })
+    } else {
+        const result = await itemsDataBase.deleteItem(id);
+        if (result !== null) {
+            const item = result[0];
+            res.status(200).json({
+                message: `${item.item_name} was deleted from the database`,
+                item
+            })
+        } else {
+            res.status(404).json({
+                message: "Item not found, nothing was deleted"
+            })
+        }
+    }
 }

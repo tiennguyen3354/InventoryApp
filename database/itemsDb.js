@@ -37,4 +37,13 @@ const updateItem = async (item_name, item_description , item_price, item_stock_q
         return await getItemByID(id); 
     }
 }
-export default {getItems , getItemsBasedOnCategory, addItem, updateItem};
+const deleteItem = async (id) => { 
+    const itemBeingDeleted = getItemByID(id); 
+    const [result]  = await connection.query("DELETE FROM Item WHERE item_id = ?", [id]); 
+    if (result.affectedRows === 0) { 
+        return null; 
+    } else { 
+        return await itemBeingDeleted; 
+    }
+}
+export default {getItems , getItemsBasedOnCategory, addItem, updateItem, deleteItem};
