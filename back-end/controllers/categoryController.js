@@ -1,5 +1,6 @@
 import categoriesDb from './../database/categoriesDb.js'
 import chalk from 'chalk'
+import express from 'express'
 export const getCategories = async (req, res) => { 
     const result = await categoriesDb.getCategories(); 
     

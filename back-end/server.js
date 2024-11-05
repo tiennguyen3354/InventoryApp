@@ -1,14 +1,13 @@
 import express from 'express'; 
 import chalk from 'chalk' 
 import {itemRouter, categoryRouter} from './routers/router.js'
-
+import cors from 'cors';
 const PORT = 8282; 
 const app = express(); 
-
+app.use(cors())
 
 // use middle ware 
 app.use(express.json());
-app.set('trust proxy', true);
 // Mount the router
 app.use("/category", categoryRouter); 
 app.use("/item", itemRouter)
