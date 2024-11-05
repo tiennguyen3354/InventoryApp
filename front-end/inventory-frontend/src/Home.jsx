@@ -30,7 +30,7 @@ const Home = () => {
         fetchData(url, config);
     }, [])
     return (
-        <div className ="row">
+        <div className="row">
             {data && <Categories categories={data}/>}
         </div>
     )
