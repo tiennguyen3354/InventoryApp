@@ -1,37 +1,16 @@
-import { useEffect } from "react";
-
-const categories = () => { 
+const Categories = (props) => { 
+    const { categories } = props;
     
-    const firstWord = "Hello World"; 
-     // Function to fetch data
-     const fetchData = async (url, config) => {
-        try {
-            const response = await fetch(url, config);
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const jsonData = await response.json();
-            console.log(jsonData)
-            
-        } catch (err) {
-           console.log(err.message)
-        }
-    };
-    useEffect(() => { 
-        const url = 'http://localhost:8282/category'; // Example API URL
-        const config = {
-            method: "get", //get request
-            mode: "cors", //cross origin resource sharing
-            headers: {
-                "Content-Type": "application/json" //sending mime type
-            }
-        }   
-        fetchData(url, config);
-    }, [])
-    return (
+    return ( 
         <div>
-           {firstWord}
+            {
+                categories.map(category => (
+                <div key={category.category_id}>
+                    <h1>{category.category_name}</h1>
+                </div> ))
+            }
         </div>
     )
 }
-export default categories
+
+export default Categories;
